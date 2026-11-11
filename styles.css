@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --ink: #202a35;
+  --muted: #687584;
+  --accent: #315d70;
+  --accent-dark: #234654;
+  --pale: #eaf1f2;
+  --line: #dce4e7;
+  --paper: #ffffff;
+  --background: #f3f6f5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; padding: 36px 18px;
+  background: var(--background); color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif; line-height: 1.6;
+}
+.app { width: 100%; max-width: 760px; margin: 0 auto; }
+.site-header { text-align: center; margin: 12px 0 28px; }
+.eyebrow, .strategy-tag { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .15em; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 8px 0; }
+h2 { font-size: clamp(1.55rem, 4vw, 2rem); margin: 8px 0 14px; }
+.subtitle { color: var(--muted); margin: 0; }
+.panel {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
+  padding: clamp(22px, 5vw, 42px); box-shadow: 0 12px 36px rgba(28, 49, 57, .06);
+}
+.hidden { display: none !important; }
+.notice, .example-box { background: #f1f6f6; border: 1px solid #dce9e9; border-radius: 12px; padding: 17px 19px; margin: 22px 0; }
+.notice ul { margin: 8px 0 0; padding-left: 22px; }
+.notice p { margin: 6px 0 0; }
+.field-label { display: block; font-weight: 700; margin: 18px 0 7px; }
+.field-label span, .small { font-size: .84rem; }
+.muted { color: var(--muted); }
+input, textarea {
+  display: block; width: 100%; border: 1px solid #cbd6da; border-radius: 10px;
+  padding: 13px 14px; color: var(--ink); background: white; font: inherit;
+}
+textarea { resize: vertical; min-height: 120px; }
+input:focus, textarea:focus { outline: 3px solid rgba(49, 93, 112, .17); border-color: var(--accent); }
+button {
+  border: 0; border-radius: 10px; padding: 13px 20px; font: 600 1rem "DM Sans", sans-serif;
+  cursor: pointer; transition: transform .12s ease, background .12s ease;
+}
+button:hover { transform: translateY(-1px); }
+button:focus-visible { outline: 3px solid #93b9c5; outline-offset: 3px; }
+.primary { background: var(--accent); color: white; margin-top: 22px; }
+.primary:hover { background: var(--accent-dark); }
+.secondary { background: white; color: var(--accent-dark); border: 1px solid #a9c0c8; }
+.progress-wrap { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: .76rem; font-weight: 700; letter-spacing: .06em; }
+.progress-track { height: 7px; border-radius: 20px; background: #e8edef; overflow: hidden; margin: 10px 0 30px; }
+.progress-fill { width: 0; height: 100%; background: var(--accent); transition: width .25s ease; }
+.strategy-tag { margin-bottom: 10px; }
+.example-box { margin-bottom: 0; }
+.study-panel { min-height: 390px; }
+.word-stage { min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 15px; }
+.study-word { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.6rem, 10vw, 4.6rem); font-weight: 700; letter-spacing: .04em; color: var(--accent-dark); }
+.starting-number { font: 700 2.7rem "Playfair Display", Georgia, serif; text-align: center; margin: 15px 0 0; }
+.timer { text-align: center; color: var(--accent); font-size: 1.4rem; font-weight: 700; margin: 0 0 10px; }
+.score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 14px; }
+.score-card { background: #f1f6f6; border: 1px solid #dce9e9; border-radius: 12px; padding: 16px 10px; text-align: center; }
+.score-card .name { font-size: .83rem; font-weight: 700; min-height: 42px; }
+.score-card .score { font: 700 2rem "Playfair Display", Georgia, serif; color: var(--accent-dark); }
+.score-card .detail { color: var(--muted); font-size: .8rem; }
+.total-score { font-weight: 700; text-align: center; margin: 12px 0 24px; }
+.download-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+footer { color: #89949b; text-align: center; font-size: .78rem; padding: 24px 8px 0; }
+@media (max-width: 520px) {
+  body { padding: 20px 12px; }
+  .score-grid { grid-template-columns: 1fr; }
+  .score-card { display: grid; grid-template-columns: 1fr auto; align-items: center; text-align: left; }
+  .score-card .name { min-height: 0; }
+  .score-card .score { grid-column: 2; grid-row: 1 / span 2; }
+  .download-row button { flex: 1 1 100%; }
+}

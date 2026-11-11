@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A brief psychology experiment about memory encoding strategies.">
+  <title>Memory & Encoding Study</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="site-header">
+      <div class="eyebrow">PSYCHOLOGY EXPERIMENT</div>
+      <h1>Memory & Encoding Study</h1>
+      <p class="subtitle">How does the way we think about information affect memory?</p>
+    </header>
+
+    <section id="welcome" class="panel">
+      <h2>Welcome</h2>
+      <p>In this study, you will learn 18 words using three different strategies. After a short distraction activity, you will be asked to recall as many words as you can.</p>
+      <div class="notice">
+        <strong>Before you begin</strong>
+        <ul>
+          <li>Find a quiet place and give the task your full attention.</li>
+          <li>Each word will appear on screen for a few seconds.</li>
+          <li>Do not write down or photograph the words.</li>
+          <li>At the end, type every word you remember. The order does not matter.</li>
+        </ul>
+      </div>
+      <label class="field-label" for="participant">Participant code <span>(optional)</span></label>
+      <input id="participant" type="text" maxlength="40" placeholder="e.g., P001" autocomplete="off">
+      <p class="small muted">A participant code is optional. Do not enter your name or other identifying information.</p>
+      <button id="startBtn" class="primary">Begin experiment <span aria-hidden="true">→</span></button>
+    </section>
+
+    <section id="instructions" class="panel hidden">
+      <div class="progress-wrap"><span id="blockLabel">BLOCK 1 OF 3</span><span id="blockProgress">0 / 6 words</span></div>
+      <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+      <div class="strategy-tag" id="strategyTag">ENCODING STRATEGY</div>
+      <h2 id="instructionTitle">Instructions</h2>
+      <p id="instructionText"></p>
+      <div class="example-box"><strong>Remember:</strong> There are no right or wrong ways to use the strategy. Just follow the instruction for each word.</div>
+      <button id="beginBlockBtn" class="primary">I'm ready</button>
+    </section>
+
+    <section id="study" class="panel study-panel hidden">
+      <div class="progress-wrap"><span id="studyBlockLabel">BLOCK 1 OF 3</span><span id="studyWordCount">WORD 1 OF 6</span></div>
+      <div class="progress-track"><div id="studyProgressFill" class="progress-fill"></div></div>
+      <div class="word-stage">
+        <div class="small muted">STUDY THIS WORD</div>
+        <div id="studyWord" class="study-word">LANTERN</div>
+        <div class="small muted">Keep the current strategy in mind.</div>
+      </div>
+    </section>
+
+    <section id="distractor" class="panel hidden">
+      <div class="strategy-tag">DISTRACTOR TASK</div>
+      <h2>Count backward by 3</h2>
+      <p>Starting with the number below, subtract 3 repeatedly. Type each new number on a separate line. Keep going until the timer reaches zero.</p>
+      <div id="startingNumber" class="starting-number">684</div>
+      <div class="timer" id="timer">30</div>
+      <label class="field-label" for="countingInput">Your answers</label>
+      <textarea id="countingInput" rows="4" placeholder="681&#10;678&#10;675" spellcheck="false"></textarea>
+      <p class="small muted">The task will automatically continue when the 30 seconds are up.</p>
+    </section>
+
+    <section id="recall" class="panel hidden">
+      <div class="strategy-tag">MEMORY TEST</div>
+      <h2>What words do you remember?</h2>
+      <p>Type as many of the 18 words you studied as you can. Enter one word per line or separate words with commas. The order does not matter. Do not guess if you are unsure.</p>
+      <label class="field-label" for="recallInput">Your recalled words</label>
+      <textarea id="recallInput" rows="8" placeholder="Type the words you remember here..." autocomplete="off"></textarea>
+      <p class="small muted">Take your time. Submit when you are finished.</p>
+      <button id="submitRecallBtn" class="primary">Submit answers</button>
+    </section>
+
+    <section id="results" class="panel hidden">
+      <div class="strategy-tag">YOUR RESULTS</div>
+      <h2>Recall results</h2>
+      <p id="resultIntro">Here is how many words you recalled from each encoding strategy.</p>
+      <div id="scoreCards" class="score-grid"></div>
+      <div class="total-score" id="totalScore"></div>
+      <div class="notice">
+        <strong>Data downloads</strong>
+        <p>Download both files to save the results from this session. The files are generated in your browser; your responses are not sent to a server.</p>
+        <div class="download-row">
+          <button id="summaryDownload" class="secondary">↓ Summary CSV</button>
+          <button id="trialDownload" class="secondary">↓ Trial-level CSV</button>
+        </div>
+      </div>
+      <button id="restartBtn" class="primary">Run another session</button>
+      <p class="small muted">A new session will randomize the strategy order and word-list assignments.</p>
+    </section>
+
+    <footer>Memory & Encoding Study · Browser-based research demonstration</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
